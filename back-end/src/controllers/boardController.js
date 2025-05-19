@@ -38,7 +38,7 @@ const createBoards = async (req, res, next) => {
       throw Error("No boards provided");
     }
 
-    const createdBoards = await prisma.board.createMany({
+    const createdBoards = await prisma.board.createManyAndReturn({
       data,
     });
 
