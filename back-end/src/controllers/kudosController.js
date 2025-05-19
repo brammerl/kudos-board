@@ -2,11 +2,19 @@ const prisma = require("../db/db");
 
 const getKudosByBoardId = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { boardId } = req.params;
 
     const fetchedKudos = await prisma.kudos.findMany({
       where: {
-        board_id: parseInt(id),
+        board_id: parseInt(boardId),
+      },
+      include: {
+        board: {
+          select: {
+            title: true,
+            description: true,
+          },
+        },
       },
     });
 
