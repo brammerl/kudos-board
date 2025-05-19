@@ -18,6 +18,7 @@ model Board {
   id          Int      @id @default(autoincrement())
   title       String
   img_url     String
+  description String?
   category    Category @relation(fields: [category_id], references: [id])
   category_id Int
   kudos       Kudos[]
@@ -29,7 +30,7 @@ model Kudos {
   description  String
   img_url      String
   upvote_count Int
-  board        Board  @relation(fields: [board_id], references: [id])
+  board        Board  @relation(fields: [board_id], references: [id], onDelete: Cascade)
   board_id     Int
 }
 

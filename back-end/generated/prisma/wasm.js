@@ -124,6 +124,7 @@ exports.Prisma.BoardScalarFieldEnum = {
   id: 'id',
   title: 'title',
   img_url: 'img_url',
+  description: 'description',
   category_id: 'category_id'
 };
 
@@ -150,6 +151,11 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 

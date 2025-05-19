@@ -1138,6 +1138,7 @@ export namespace Prisma {
     id: number | null
     title: string | null
     img_url: string | null
+    description: string | null
     category_id: number | null
   }
 
@@ -1145,6 +1146,7 @@ export namespace Prisma {
     id: number | null
     title: string | null
     img_url: string | null
+    description: string | null
     category_id: number | null
   }
 
@@ -1152,6 +1154,7 @@ export namespace Prisma {
     id: number
     title: number
     img_url: number
+    description: number
     category_id: number
     _all: number
   }
@@ -1171,6 +1174,7 @@ export namespace Prisma {
     id?: true
     title?: true
     img_url?: true
+    description?: true
     category_id?: true
   }
 
@@ -1178,6 +1182,7 @@ export namespace Prisma {
     id?: true
     title?: true
     img_url?: true
+    description?: true
     category_id?: true
   }
 
@@ -1185,6 +1190,7 @@ export namespace Prisma {
     id?: true
     title?: true
     img_url?: true
+    description?: true
     category_id?: true
     _all?: true
   }
@@ -1279,6 +1285,7 @@ export namespace Prisma {
     id: number
     title: string
     img_url: string
+    description: string | null
     category_id: number
     _count: BoardCountAggregateOutputType | null
     _avg: BoardAvgAggregateOutputType | null
@@ -1305,6 +1312,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
+    description?: boolean
     category_id?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
     kudos?: boolean | Board$kudosArgs<ExtArgs>
@@ -1315,6 +1323,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
+    description?: boolean
     category_id?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["board"]>
@@ -1323,6 +1332,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
+    description?: boolean
     category_id?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["board"]>
@@ -1331,10 +1341,11 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
+    description?: boolean
     category_id?: boolean
   }
 
-  export type BoardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "img_url" | "category_id", ExtArgs["result"]["board"]>
+  export type BoardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "img_url" | "description" | "category_id", ExtArgs["result"]["board"]>
   export type BoardInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | CategoryDefaultArgs<ExtArgs>
     kudos?: boolean | Board$kudosArgs<ExtArgs>
@@ -1357,6 +1368,7 @@ export namespace Prisma {
       id: number
       title: string
       img_url: string
+      description: string | null
       category_id: number
     }, ExtArgs["result"]["board"]>
     composites: {}
@@ -1786,6 +1798,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Board", 'Int'>
     readonly title: FieldRef<"Board", 'String'>
     readonly img_url: FieldRef<"Board", 'String'>
+    readonly description: FieldRef<"Board", 'String'>
     readonly category_id: FieldRef<"Board", 'Int'>
   }
     
@@ -4434,6 +4447,7 @@ export namespace Prisma {
     id: 'id',
     title: 'title',
     img_url: 'img_url',
+    description: 'description',
     category_id: 'category_id'
   };
 
@@ -4475,6 +4489,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -4534,6 +4556,7 @@ export namespace Prisma {
     id?: IntFilter<"Board"> | number
     title?: StringFilter<"Board"> | string
     img_url?: StringFilter<"Board"> | string
+    description?: StringNullableFilter<"Board"> | string | null
     category_id?: IntFilter<"Board"> | number
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
     kudos?: KudosListRelationFilter
@@ -4543,6 +4566,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
+    description?: SortOrderInput | SortOrder
     category_id?: SortOrder
     category?: CategoryOrderByWithRelationInput
     kudos?: KudosOrderByRelationAggregateInput
@@ -4555,6 +4579,7 @@ export namespace Prisma {
     NOT?: BoardWhereInput | BoardWhereInput[]
     title?: StringFilter<"Board"> | string
     img_url?: StringFilter<"Board"> | string
+    description?: StringNullableFilter<"Board"> | string | null
     category_id?: IntFilter<"Board"> | number
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
     kudos?: KudosListRelationFilter
@@ -4564,6 +4589,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
+    description?: SortOrderInput | SortOrder
     category_id?: SortOrder
     _count?: BoardCountOrderByAggregateInput
     _avg?: BoardAvgOrderByAggregateInput
@@ -4579,6 +4605,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Board"> | number
     title?: StringWithAggregatesFilter<"Board"> | string
     img_url?: StringWithAggregatesFilter<"Board"> | string
+    description?: StringNullableWithAggregatesFilter<"Board"> | string | null
     category_id?: IntWithAggregatesFilter<"Board"> | number
   }
 
@@ -4694,6 +4721,7 @@ export namespace Prisma {
   export type BoardCreateInput = {
     title: string
     img_url: string
+    description?: string | null
     category: CategoryCreateNestedOneWithoutBoardsInput
     kudos?: KudosCreateNestedManyWithoutBoardInput
   }
@@ -4702,6 +4730,7 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
+    description?: string | null
     category_id: number
     kudos?: KudosUncheckedCreateNestedManyWithoutBoardInput
   }
@@ -4709,6 +4738,7 @@ export namespace Prisma {
   export type BoardUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: CategoryUpdateOneRequiredWithoutBoardsNestedInput
     kudos?: KudosUpdateManyWithoutBoardNestedInput
   }
@@ -4717,6 +4747,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     category_id?: IntFieldUpdateOperationsInput | number
     kudos?: KudosUncheckedUpdateManyWithoutBoardNestedInput
   }
@@ -4725,18 +4756,21 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
+    description?: string | null
     category_id: number
   }
 
   export type BoardUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BoardUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     category_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -4868,6 +4902,21 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type CategoryScalarRelationFilter = {
     is?: CategoryWhereInput
     isNot?: CategoryWhereInput
@@ -4879,6 +4928,11 @@ export namespace Prisma {
     none?: KudosWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type KudosOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -4887,6 +4941,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
+    description?: SortOrder
     category_id?: SortOrder
   }
 
@@ -4899,6 +4954,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
+    description?: SortOrder
     category_id?: SortOrder
   }
 
@@ -4906,6 +4962,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
+    description?: SortOrder
     category_id?: SortOrder
   }
 
@@ -4946,6 +5003,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type BoardScalarRelationFilter = {
@@ -5050,6 +5125,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type CategoryUpdateOneRequiredWithoutBoardsNestedInput = {
@@ -5177,6 +5256,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -5219,6 +5312,34 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type CategoryCreateWithoutBoardsInput = {
@@ -5315,6 +5436,7 @@ export namespace Prisma {
   export type BoardCreateWithoutKudosInput = {
     title: string
     img_url: string
+    description?: string | null
     category: CategoryCreateNestedOneWithoutBoardsInput
   }
 
@@ -5322,6 +5444,7 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
+    description?: string | null
     category_id: number
   }
 
@@ -5344,6 +5467,7 @@ export namespace Prisma {
   export type BoardUpdateWithoutKudosInput = {
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: CategoryUpdateOneRequiredWithoutBoardsNestedInput
   }
 
@@ -5351,12 +5475,14 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     category_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type BoardCreateWithoutCategoryInput = {
     title: string
     img_url: string
+    description?: string | null
     kudos?: KudosCreateNestedManyWithoutBoardInput
   }
 
@@ -5364,6 +5490,7 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
+    description?: string | null
     kudos?: KudosUncheckedCreateNestedManyWithoutBoardInput
   }
 
@@ -5400,6 +5527,7 @@ export namespace Prisma {
     id?: IntFilter<"Board"> | number
     title?: StringFilter<"Board"> | string
     img_url?: StringFilter<"Board"> | string
+    description?: StringNullableFilter<"Board"> | string | null
     category_id?: IntFilter<"Board"> | number
   }
 
@@ -5438,11 +5566,13 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
+    description?: string | null
   }
 
   export type BoardUpdateWithoutCategoryInput = {
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     kudos?: KudosUpdateManyWithoutBoardNestedInput
   }
 
@@ -5450,6 +5580,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     kudos?: KudosUncheckedUpdateManyWithoutBoardNestedInput
   }
 
@@ -5457,6 +5588,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
