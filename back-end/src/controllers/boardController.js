@@ -7,10 +7,45 @@ const getAllBoards = async (req, res, next) => {
         category: true,
       },
     });
+
     res.json(boards);
   } catch (e) {
     next(e);
   }
 };
 
-module.exports = { getAllBoards };
+const deleteBoardById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const deletedBoard = await prisma.board.delete({
+      where: {
+        id: parseInt(id),
+      },
+    });
+
+    res.json(deletedBoard.id);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const createBoards = async (req, res, next) => {
+  try {
+    const { data } = req.body;
+
+    if (!data.length) {
+      throw Error("No boards provided");
+    }
+
+    const createdBoards = await prisma.board.createMany({
+      data,
+    });
+
+    res.json(createdBoards);
+  } catch (e) {
+    next(e);
+  }
+};
+
+module.exports = { getAllBoards, deleteBoardById, createBoards };
