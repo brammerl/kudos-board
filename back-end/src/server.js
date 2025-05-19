@@ -6,6 +6,8 @@ const boards = require("./routes/board");
 const PORT = 3000;
 
 app.use(cors());
+app.use(express.json());
+
 app.use("/boards", boards);
 
 app.listen(PORT, () => {
