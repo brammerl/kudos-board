@@ -1,19 +1,34 @@
 {
   "boards": [
     {
-      "title": "I love you!",
+      "title": "Etiam gravida molestie",
       "img_url": "https://picsum.photos/200/300",
-      "categoryId": 1
+      "category_id": 10,
+      "description": "dolor sit amet, consectetuer adipiscing elit. Aliquam"
     },
     {
-      "title": "Happy birthday!",
+      "title": "odio. Etiam ligula tortor,",
       "img_url": "https://picsum.photos/200/300",
-      "categoryId": 1
+      "category_id": 11,
+      "description": "molestie arcu. Sed eu nibh vulputate mauris sagittis placerat."
     },
     {
-      "title": "Feel better soon!",
+      "title": "adipiscing non, luctus sit",
       "img_url": "https://picsum.photos/200/300",
-      "categoryId": 3
+      "category_id": 12,
+      "description": "magnis dis parturient"
+    },
+    {
+      "title": "Nunc sollicitudin commodo ipsum. Suspendisse",
+      "img_url": "https://picsum.photos/200/300",
+      "category_id": 10,
+      "description": "convallis convallis"
+    },
+    {
+      "title": "massa non",
+      "img_url": "https://picsum.photos/200/300",
+      "category_id": 11,
+      "description": "enim consequat purus. Maecenas libero est,"
     }
   ]
 }
