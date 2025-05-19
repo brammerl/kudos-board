@@ -35,6 +35,7 @@ model Kudos {
 
 model Category {
   id Int @id @default(autoincrement())
-  category_name String
+  category_name String @unique
+  display_name String
   boards Board[]
 }
