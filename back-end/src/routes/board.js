@@ -1,6 +1,7 @@
 const express = require("express");
-const boardController = require("../controllers/boardController.js");
 const router = express.Router();
+
+const boardController = require("../controllers/boardController");
 
 router.get("/", boardController.getAllBoards);
 
