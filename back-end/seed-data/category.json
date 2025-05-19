@@ -1,0 +1,16 @@
+{
+  "category": [
+    {
+      "category_name": "celebration",
+      "display_name": "Celebration"
+    },
+    {
+      "category_name": "thank_you",
+      "display_name": "Thank You"
+    },
+    {
+      "category_name": "inspiration",
+      "display_name": "Inspiration"
+    }
+  ]
+}

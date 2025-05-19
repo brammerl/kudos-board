@@ -124,7 +124,7 @@ exports.Prisma.BoardScalarFieldEnum = {
   id: 'id',
   title: 'title',
   img_url: 'img_url',
-  categoryId: 'categoryId'
+  category_id: 'category_id'
 };
 
 exports.Prisma.KudosScalarFieldEnum = {
@@ -133,7 +133,7 @@ exports.Prisma.KudosScalarFieldEnum = {
   description: 'description',
   img_url: 'img_url',
   upvote_count: 'upvote_count',
-  boardId: 'boardId'
+  board_id: 'board_id'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {

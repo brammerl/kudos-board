@@ -1126,66 +1126,66 @@ export namespace Prisma {
 
   export type BoardAvgAggregateOutputType = {
     id: number | null
-    categoryId: number | null
+    category_id: number | null
   }
 
   export type BoardSumAggregateOutputType = {
     id: number | null
-    categoryId: number | null
+    category_id: number | null
   }
 
   export type BoardMinAggregateOutputType = {
     id: number | null
     title: string | null
     img_url: string | null
-    categoryId: number | null
+    category_id: number | null
   }
 
   export type BoardMaxAggregateOutputType = {
     id: number | null
     title: string | null
     img_url: string | null
-    categoryId: number | null
+    category_id: number | null
   }
 
   export type BoardCountAggregateOutputType = {
     id: number
     title: number
     img_url: number
-    categoryId: number
+    category_id: number
     _all: number
   }
 
 
   export type BoardAvgAggregateInputType = {
     id?: true
-    categoryId?: true
+    category_id?: true
   }
 
   export type BoardSumAggregateInputType = {
     id?: true
-    categoryId?: true
+    category_id?: true
   }
 
   export type BoardMinAggregateInputType = {
     id?: true
     title?: true
     img_url?: true
-    categoryId?: true
+    category_id?: true
   }
 
   export type BoardMaxAggregateInputType = {
     id?: true
     title?: true
     img_url?: true
-    categoryId?: true
+    category_id?: true
   }
 
   export type BoardCountAggregateInputType = {
     id?: true
     title?: true
     img_url?: true
-    categoryId?: true
+    category_id?: true
     _all?: true
   }
 
@@ -1279,7 +1279,7 @@ export namespace Prisma {
     id: number
     title: string
     img_url: string
-    categoryId: number
+    category_id: number
     _count: BoardCountAggregateOutputType | null
     _avg: BoardAvgAggregateOutputType | null
     _sum: BoardSumAggregateOutputType | null
@@ -1305,7 +1305,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
-    categoryId?: boolean
+    category_id?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
     kudos?: boolean | Board$kudosArgs<ExtArgs>
     _count?: boolean | BoardCountOutputTypeDefaultArgs<ExtArgs>
@@ -1315,7 +1315,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
-    categoryId?: boolean
+    category_id?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["board"]>
 
@@ -1323,7 +1323,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
-    categoryId?: boolean
+    category_id?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["board"]>
 
@@ -1331,10 +1331,10 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     img_url?: boolean
-    categoryId?: boolean
+    category_id?: boolean
   }
 
-  export type BoardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "img_url" | "categoryId", ExtArgs["result"]["board"]>
+  export type BoardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "img_url" | "category_id", ExtArgs["result"]["board"]>
   export type BoardInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | CategoryDefaultArgs<ExtArgs>
     kudos?: boolean | Board$kudosArgs<ExtArgs>
@@ -1357,7 +1357,7 @@ export namespace Prisma {
       id: number
       title: string
       img_url: string
-      categoryId: number
+      category_id: number
     }, ExtArgs["result"]["board"]>
     composites: {}
   }
@@ -1786,7 +1786,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Board", 'Int'>
     readonly title: FieldRef<"Board", 'String'>
     readonly img_url: FieldRef<"Board", 'String'>
-    readonly categoryId: FieldRef<"Board", 'Int'>
+    readonly category_id: FieldRef<"Board", 'Int'>
   }
     
 
@@ -2240,13 +2240,13 @@ export namespace Prisma {
   export type KudosAvgAggregateOutputType = {
     id: number | null
     upvote_count: number | null
-    boardId: number | null
+    board_id: number | null
   }
 
   export type KudosSumAggregateOutputType = {
     id: number | null
     upvote_count: number | null
-    boardId: number | null
+    board_id: number | null
   }
 
   export type KudosMinAggregateOutputType = {
@@ -2255,7 +2255,7 @@ export namespace Prisma {
     description: string | null
     img_url: string | null
     upvote_count: number | null
-    boardId: number | null
+    board_id: number | null
   }
 
   export type KudosMaxAggregateOutputType = {
@@ -2264,7 +2264,7 @@ export namespace Prisma {
     description: string | null
     img_url: string | null
     upvote_count: number | null
-    boardId: number | null
+    board_id: number | null
   }
 
   export type KudosCountAggregateOutputType = {
@@ -2273,7 +2273,7 @@ export namespace Prisma {
     description: number
     img_url: number
     upvote_count: number
-    boardId: number
+    board_id: number
     _all: number
   }
 
@@ -2281,13 +2281,13 @@ export namespace Prisma {
   export type KudosAvgAggregateInputType = {
     id?: true
     upvote_count?: true
-    boardId?: true
+    board_id?: true
   }
 
   export type KudosSumAggregateInputType = {
     id?: true
     upvote_count?: true
-    boardId?: true
+    board_id?: true
   }
 
   export type KudosMinAggregateInputType = {
@@ -2296,7 +2296,7 @@ export namespace Prisma {
     description?: true
     img_url?: true
     upvote_count?: true
-    boardId?: true
+    board_id?: true
   }
 
   export type KudosMaxAggregateInputType = {
@@ -2305,7 +2305,7 @@ export namespace Prisma {
     description?: true
     img_url?: true
     upvote_count?: true
-    boardId?: true
+    board_id?: true
   }
 
   export type KudosCountAggregateInputType = {
@@ -2314,7 +2314,7 @@ export namespace Prisma {
     description?: true
     img_url?: true
     upvote_count?: true
-    boardId?: true
+    board_id?: true
     _all?: true
   }
 
@@ -2410,7 +2410,7 @@ export namespace Prisma {
     description: string
     img_url: string
     upvote_count: number
-    boardId: number
+    board_id: number
     _count: KudosCountAggregateOutputType | null
     _avg: KudosAvgAggregateOutputType | null
     _sum: KudosSumAggregateOutputType | null
@@ -2438,7 +2438,7 @@ export namespace Prisma {
     description?: boolean
     img_url?: boolean
     upvote_count?: boolean
-    boardId?: boolean
+    board_id?: boolean
     board?: boolean | BoardDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kudos"]>
 
@@ -2448,7 +2448,7 @@ export namespace Prisma {
     description?: boolean
     img_url?: boolean
     upvote_count?: boolean
-    boardId?: boolean
+    board_id?: boolean
     board?: boolean | BoardDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kudos"]>
 
@@ -2458,7 +2458,7 @@ export namespace Prisma {
     description?: boolean
     img_url?: boolean
     upvote_count?: boolean
-    boardId?: boolean
+    board_id?: boolean
     board?: boolean | BoardDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kudos"]>
 
@@ -2468,10 +2468,10 @@ export namespace Prisma {
     description?: boolean
     img_url?: boolean
     upvote_count?: boolean
-    boardId?: boolean
+    board_id?: boolean
   }
 
-  export type KudosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "img_url" | "upvote_count" | "boardId", ExtArgs["result"]["kudos"]>
+  export type KudosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "img_url" | "upvote_count" | "board_id", ExtArgs["result"]["kudos"]>
   export type KudosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     board?: boolean | BoardDefaultArgs<ExtArgs>
   }
@@ -2493,7 +2493,7 @@ export namespace Prisma {
       description: string
       img_url: string
       upvote_count: number
-      boardId: number
+      board_id: number
     }, ExtArgs["result"]["kudos"]>
     composites: {}
   }
@@ -2923,7 +2923,7 @@ export namespace Prisma {
     readonly description: FieldRef<"Kudos", 'String'>
     readonly img_url: FieldRef<"Kudos", 'String'>
     readonly upvote_count: FieldRef<"Kudos", 'Int'>
-    readonly boardId: FieldRef<"Kudos", 'Int'>
+    readonly board_id: FieldRef<"Kudos", 'Int'>
   }
     
 
@@ -4434,7 +4434,7 @@ export namespace Prisma {
     id: 'id',
     title: 'title',
     img_url: 'img_url',
-    categoryId: 'categoryId'
+    category_id: 'category_id'
   };
 
   export type BoardScalarFieldEnum = (typeof BoardScalarFieldEnum)[keyof typeof BoardScalarFieldEnum]
@@ -4446,7 +4446,7 @@ export namespace Prisma {
     description: 'description',
     img_url: 'img_url',
     upvote_count: 'upvote_count',
-    boardId: 'boardId'
+    board_id: 'board_id'
   };
 
   export type KudosScalarFieldEnum = (typeof KudosScalarFieldEnum)[keyof typeof KudosScalarFieldEnum]
@@ -4534,7 +4534,7 @@ export namespace Prisma {
     id?: IntFilter<"Board"> | number
     title?: StringFilter<"Board"> | string
     img_url?: StringFilter<"Board"> | string
-    categoryId?: IntFilter<"Board"> | number
+    category_id?: IntFilter<"Board"> | number
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
     kudos?: KudosListRelationFilter
   }
@@ -4543,7 +4543,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
-    categoryId?: SortOrder
+    category_id?: SortOrder
     category?: CategoryOrderByWithRelationInput
     kudos?: KudosOrderByRelationAggregateInput
   }
@@ -4555,7 +4555,7 @@ export namespace Prisma {
     NOT?: BoardWhereInput | BoardWhereInput[]
     title?: StringFilter<"Board"> | string
     img_url?: StringFilter<"Board"> | string
-    categoryId?: IntFilter<"Board"> | number
+    category_id?: IntFilter<"Board"> | number
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
     kudos?: KudosListRelationFilter
   }, "id">
@@ -4564,7 +4564,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
-    categoryId?: SortOrder
+    category_id?: SortOrder
     _count?: BoardCountOrderByAggregateInput
     _avg?: BoardAvgOrderByAggregateInput
     _max?: BoardMaxOrderByAggregateInput
@@ -4579,7 +4579,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Board"> | number
     title?: StringWithAggregatesFilter<"Board"> | string
     img_url?: StringWithAggregatesFilter<"Board"> | string
-    categoryId?: IntWithAggregatesFilter<"Board"> | number
+    category_id?: IntWithAggregatesFilter<"Board"> | number
   }
 
   export type KudosWhereInput = {
@@ -4591,7 +4591,7 @@ export namespace Prisma {
     description?: StringFilter<"Kudos"> | string
     img_url?: StringFilter<"Kudos"> | string
     upvote_count?: IntFilter<"Kudos"> | number
-    boardId?: IntFilter<"Kudos"> | number
+    board_id?: IntFilter<"Kudos"> | number
     board?: XOR<BoardScalarRelationFilter, BoardWhereInput>
   }
 
@@ -4601,7 +4601,7 @@ export namespace Prisma {
     description?: SortOrder
     img_url?: SortOrder
     upvote_count?: SortOrder
-    boardId?: SortOrder
+    board_id?: SortOrder
     board?: BoardOrderByWithRelationInput
   }
 
@@ -4614,7 +4614,7 @@ export namespace Prisma {
     description?: StringFilter<"Kudos"> | string
     img_url?: StringFilter<"Kudos"> | string
     upvote_count?: IntFilter<"Kudos"> | number
-    boardId?: IntFilter<"Kudos"> | number
+    board_id?: IntFilter<"Kudos"> | number
     board?: XOR<BoardScalarRelationFilter, BoardWhereInput>
   }, "id">
 
@@ -4624,7 +4624,7 @@ export namespace Prisma {
     description?: SortOrder
     img_url?: SortOrder
     upvote_count?: SortOrder
-    boardId?: SortOrder
+    board_id?: SortOrder
     _count?: KudosCountOrderByAggregateInput
     _avg?: KudosAvgOrderByAggregateInput
     _max?: KudosMaxOrderByAggregateInput
@@ -4641,7 +4641,7 @@ export namespace Prisma {
     description?: StringWithAggregatesFilter<"Kudos"> | string
     img_url?: StringWithAggregatesFilter<"Kudos"> | string
     upvote_count?: IntWithAggregatesFilter<"Kudos"> | number
-    boardId?: IntWithAggregatesFilter<"Kudos"> | number
+    board_id?: IntWithAggregatesFilter<"Kudos"> | number
   }
 
   export type CategoryWhereInput = {
@@ -4663,13 +4663,13 @@ export namespace Prisma {
 
   export type CategoryWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    category_name?: string
     AND?: CategoryWhereInput | CategoryWhereInput[]
     OR?: CategoryWhereInput[]
     NOT?: CategoryWhereInput | CategoryWhereInput[]
-    category_name?: StringFilter<"Category"> | string
     display_name?: StringFilter<"Category"> | string
     boards?: BoardListRelationFilter
-  }, "id">
+  }, "id" | "category_name">
 
   export type CategoryOrderByWithAggregationInput = {
     id?: SortOrder
@@ -4702,7 +4702,7 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
-    categoryId: number
+    category_id: number
     kudos?: KudosUncheckedCreateNestedManyWithoutBoardInput
   }
 
@@ -4717,7 +4717,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
-    categoryId?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
     kudos?: KudosUncheckedUpdateManyWithoutBoardNestedInput
   }
 
@@ -4725,7 +4725,7 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
-    categoryId: number
+    category_id: number
   }
 
   export type BoardUpdateManyMutationInput = {
@@ -4737,7 +4737,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
-    categoryId?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type KudosCreateInput = {
@@ -4754,7 +4754,7 @@ export namespace Prisma {
     description: string
     img_url: string
     upvote_count: number
-    boardId: number
+    board_id: number
   }
 
   export type KudosUpdateInput = {
@@ -4771,7 +4771,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
     upvote_count?: IntFieldUpdateOperationsInput | number
-    boardId?: IntFieldUpdateOperationsInput | number
+    board_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type KudosCreateManyInput = {
@@ -4780,7 +4780,7 @@ export namespace Prisma {
     description: string
     img_url: string
     upvote_count: number
-    boardId: number
+    board_id: number
   }
 
   export type KudosUpdateManyMutationInput = {
@@ -4796,7 +4796,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
     upvote_count?: IntFieldUpdateOperationsInput | number
-    boardId?: IntFieldUpdateOperationsInput | number
+    board_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type CategoryCreateInput = {
@@ -4887,31 +4887,31 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
-    categoryId?: SortOrder
+    category_id?: SortOrder
   }
 
   export type BoardAvgOrderByAggregateInput = {
     id?: SortOrder
-    categoryId?: SortOrder
+    category_id?: SortOrder
   }
 
   export type BoardMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
-    categoryId?: SortOrder
+    category_id?: SortOrder
   }
 
   export type BoardMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     img_url?: SortOrder
-    categoryId?: SortOrder
+    category_id?: SortOrder
   }
 
   export type BoardSumOrderByAggregateInput = {
     id?: SortOrder
-    categoryId?: SortOrder
+    category_id?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -4959,13 +4959,13 @@ export namespace Prisma {
     description?: SortOrder
     img_url?: SortOrder
     upvote_count?: SortOrder
-    boardId?: SortOrder
+    board_id?: SortOrder
   }
 
   export type KudosAvgOrderByAggregateInput = {
     id?: SortOrder
     upvote_count?: SortOrder
-    boardId?: SortOrder
+    board_id?: SortOrder
   }
 
   export type KudosMaxOrderByAggregateInput = {
@@ -4974,7 +4974,7 @@ export namespace Prisma {
     description?: SortOrder
     img_url?: SortOrder
     upvote_count?: SortOrder
-    boardId?: SortOrder
+    board_id?: SortOrder
   }
 
   export type KudosMinOrderByAggregateInput = {
@@ -4983,13 +4983,13 @@ export namespace Prisma {
     description?: SortOrder
     img_url?: SortOrder
     upvote_count?: SortOrder
-    boardId?: SortOrder
+    board_id?: SortOrder
   }
 
   export type KudosSumOrderByAggregateInput = {
     id?: SortOrder
     upvote_count?: SortOrder
-    boardId?: SortOrder
+    board_id?: SortOrder
   }
 
   export type BoardListRelationFilter = {
@@ -5309,7 +5309,7 @@ export namespace Prisma {
     description?: StringFilter<"Kudos"> | string
     img_url?: StringFilter<"Kudos"> | string
     upvote_count?: IntFilter<"Kudos"> | number
-    boardId?: IntFilter<"Kudos"> | number
+    board_id?: IntFilter<"Kudos"> | number
   }
 
   export type BoardCreateWithoutKudosInput = {
@@ -5322,7 +5322,7 @@ export namespace Prisma {
     id?: number
     title: string
     img_url: string
-    categoryId: number
+    category_id: number
   }
 
   export type BoardCreateOrConnectWithoutKudosInput = {
@@ -5351,7 +5351,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
-    categoryId?: IntFieldUpdateOperationsInput | number
+    category_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type BoardCreateWithoutCategoryInput = {
@@ -5400,7 +5400,7 @@ export namespace Prisma {
     id?: IntFilter<"Board"> | number
     title?: StringFilter<"Board"> | string
     img_url?: StringFilter<"Board"> | string
-    categoryId?: IntFilter<"Board"> | number
+    category_id?: IntFilter<"Board"> | number
   }
 
   export type KudosCreateManyBoardInput = {

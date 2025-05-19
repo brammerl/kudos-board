@@ -1,0 +1,19 @@
+{
+  "boards": [
+    {
+      "title": "I love you!",
+      "img_url": "https://picsum.photos/200/300",
+      "categoryId": 1
+    },
+    {
+      "title": "Happy birthday!",
+      "img_url": "https://picsum.photos/200/300",
+      "categoryId": 1
+    },
+    {
+      "title": "Feel better soon!",
+      "img_url": "https://picsum.photos/200/300",
+      "categoryId": 3
+    }
+  ]
+}
