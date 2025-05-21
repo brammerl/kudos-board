@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import useGetData from "../hooks/useGetData";
 import BoardList from "./BoardList";
 
