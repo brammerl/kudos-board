@@ -1,17 +1,26 @@
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+  Typography,
+  Button,
+} from "@mui/material";
+
 const BoardCard = ({ board }) => {
   const { title, img_url, description } = board;
   return (
-    <article>
-      <img src={img_url} />
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </div>
-      <div>
-        <button>View Board</button>
-        <button>Delete Board</button>
-      </div>
-    </article>
+    <Card>
+      <CardMedia image={img_url} sx={{ height: 200, width: 300 }} />
+      <CardContent>
+        <Typography>{title}</Typography>
+        <Typography>{description}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button>View board</Button>
+        <Button>Delete board</Button>
+      </CardActions>
+    </Card>
   );
 };
 
