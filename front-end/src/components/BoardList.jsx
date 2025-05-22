@@ -3,15 +3,13 @@ import BoardCard from "./BoardCard";
 
 const BoardList = ({ boards }) => {
   return (
-    <Container sx={{ marginTop: "100px" }}>
-      <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={2}>
-        {boards.map((board) => (
-          <Grid size={4}>
-            <BoardCard board={board} />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={2}>
+      {boards.map((board) => (
+        <Grid size={4} key={board.id}>
+          <BoardCard board={board} key={board.title} />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
