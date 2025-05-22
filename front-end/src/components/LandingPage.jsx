@@ -12,23 +12,56 @@ import { useState } from "react";
 import useGetData from "../hooks/useGetData";
 import BoardList from "./BoardList";
 
+const removeElement = (arr, elem) => {
+  if (arr.length == 1) {
+    return [];
+  }
+
+  return arr.filter((cat) => cat !== elem);
+};
+
+const filterDataByQuery = (data, query) => {
+  if (query == "") {
+    return data;
+  }
+
+  const trimmedQuery = query.toLowerCase().trimEnd().trimStart();
+
+  return data.filter((data) => data.title.toLowerCase().includes(trimmedQuery));
+};
+
+const filterDataByCategory = (data, categories) => {
+  if (!categories.length) {
+    return data;
+  }
+
+  return data.filter((data) =>
+    categories.includes(data.category.category_name)
+  );
+};
+
 const LandingPage = () => {
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState([]);
+  console.log(query);
 
   const { data, loading, error } = useGetData("/boards");
-  console.log(loading);
-  console.log(data);
+
+  const handleCheckBoxChange = (e) => {
+    if (!e.target.checked) {
+      const updated = removeElement(category, e.target.value);
+      return setCategory([...updated]);
+    }
+
+    setCategory((prev) => [...prev, e.target.value]);
+  };
+
   if (loading) {
     return <CircularProgress />;
   }
 
-  const filteredData = data.filter((data) => {
-    if (query == "") {
-      return data;
-    }
-    const trimmedQuery = query.toLowerCase().trimEnd().trimStart();
-    return data.title.toLowerCase().includes(trimmedQuery);
-  });
+  const categorizedData = filterDataByCategory(data, category);
+  const filteredData = filterDataByQuery(categorizedData, query);
 
   return (
     <Container sx={{ marginTop: "50px" }}>
@@ -49,9 +82,33 @@ const LandingPage = () => {
           onChange={(e) => setQuery(e.target.value)}
         />
         <FormGroup row sx={{ flexGrow: "2", justifyContent: "flex-end" }}>
-          <FormControlLabel control={<Checkbox />} label="Celebration" />
-          <FormControlLabel control={<Checkbox />} label="Thank you" />
-          <FormControlLabel control={<Checkbox />} label="Inspiration" />
+          <FormControlLabel
+            control={
+              <Checkbox
+                value="celebration"
+                onChange={(e) => handleCheckBoxChange(e)}
+              />
+            }
+            label="Celebration"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                value="thank_you"
+                onChange={(e) => handleCheckBoxChange(e)}
+              />
+            }
+            label="Thank you"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                value="inspriation"
+                onChange={(e) => handleCheckBoxChange(e)}
+              />
+            }
+            label="Inspiration"
+          />
         </FormGroup>
       </Box>
 
