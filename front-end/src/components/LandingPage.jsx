@@ -111,7 +111,7 @@ const LandingPage = () => {
         </FormGroup>
       </Box>
 
-      {loading ? <div>loading</div> : <BoardList boards={filteredData} />}
+      <BoardList boards={filteredData} />
     </Container>
   );
 };
