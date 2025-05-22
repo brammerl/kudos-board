@@ -43,7 +43,6 @@ const filterDataByCategory = (data, categories) => {
 const LandingPage = () => {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState([]);
-  console.log(query);
 
   const { data, loading, error } = useGetData("/boards");
 
