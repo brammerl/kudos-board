@@ -1,8 +1,9 @@
 import { useParams } from "react-router";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Grid } from "@mui/material";
 
 import useGetData from "../hooks/useGetData";
 import KudosCard from "./KudosCard";
+import CardGrid from "./CardGrid";
 
 const KudosBoardPage = () => {
   const { id } = useParams();
@@ -13,11 +14,15 @@ const KudosBoardPage = () => {
   }
 
   return (
-    <div>
+    <CardGrid>
       {data.map((kudos) => {
-        return <KudosCard kudos={kudos} />;
+        return (
+          <Grid size={4} key={kudos.id}>
+            <KudosCard kudos={kudos} key={kudos.title} />
+          </Grid>
+        );
       })}
-    </div>
+    </CardGrid>
   );
 };
 

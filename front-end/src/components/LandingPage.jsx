@@ -65,7 +65,7 @@ const LandingPage = () => {
   const filteredData = filterDataByQuery(categorizedData, query);
 
   return (
-    <Container sx={{ marginTop: "50px" }}>
+    <>
       <Box
         sx={{
           display: "flex",
@@ -121,7 +121,7 @@ const LandingPage = () => {
           );
         })}
       </CardGrid>
-    </Container>
+    </>
   );
 };
 
