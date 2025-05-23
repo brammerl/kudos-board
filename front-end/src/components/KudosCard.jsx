@@ -7,11 +7,10 @@ import {
   Button,
 } from "@mui/material";
 import { NavLink } from "react-router";
-
 import { truncateString } from "../helpers/helpers";
 
-const BoardCard = ({ board }) => {
-  const { title, img_url, description, id } = board;
+const KudosCard = ({ kudos }) => {
+  const { title, img_url, description, id } = kudos;
   const truncatedTitle = truncateString(title, 32);
   const truncatedDescription = truncateString(description);
 
@@ -31,13 +30,11 @@ const BoardCard = ({ board }) => {
         <Typography>{truncatedDescription}</Typography>
       </CardContent>
       <CardActions>
-        <Button>
-          <NavLink to={`/board/${id}`}>View board</NavLink>
-        </Button>
-        <Button>Delete board</Button>
+        <Button>Upvote</Button>
+        <Button>Delete</Button>
       </CardActions>
     </Card>
   );
 };
 
-export default BoardCard;
+export default KudosCard;

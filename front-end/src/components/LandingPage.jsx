@@ -6,18 +6,20 @@ import {
   Checkbox,
   Box,
   CircularProgress,
+  Grid,
 } from "@mui/material";
 import { useState } from "react";
 
 import useGetData from "../hooks/useGetData";
-import BoardList from "./BoardList";
+import CardGrid from "./CardGrid";
+import BoardCard from "./BoardCard";
 
-const removeElement = (arr, elem) => {
+const removeElementFromArr = (arr, elem) => {
   if (arr.length == 1) {
     return [];
   }
 
-  return arr.filter((cat) => cat !== elem);
+  return arr.filter((arrElem) => arrElem !== elem);
 };
 
 const filterDataByQuery = (data, query) => {
@@ -48,7 +50,7 @@ const LandingPage = () => {
 
   const handleCheckBoxChange = (e) => {
     if (!e.target.checked) {
-      const updated = removeElement(category, e.target.value);
+      const updated = removeElementFromArr(category, e.target.value);
       return setCategory([...updated]);
     }
 
@@ -110,8 +112,15 @@ const LandingPage = () => {
           />
         </FormGroup>
       </Box>
-
-      <BoardList boards={filteredData} />
+      <CardGrid>
+        {filteredData.map((board) => {
+          return (
+            <Grid size={4} key={board.id}>
+              <BoardCard board={board} key={board.title} />
+            </Grid>
+          );
+        })}
+      </CardGrid>
     </Container>
   );
 };
