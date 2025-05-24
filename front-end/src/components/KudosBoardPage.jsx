@@ -58,7 +58,6 @@ const KudosBoardPage = () => {
     ]);
 
     handleModalChange();
-
     refetch({});
   };
   if (loading) {
