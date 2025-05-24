@@ -2421,7 +2421,7 @@ export namespace Prisma {
     id: number
     title: string
     description: string
-    img_url: string
+    img_url: string | null
     upvote_count: number
     board_id: number
     _count: KudosCountAggregateOutputType | null
@@ -2504,7 +2504,7 @@ export namespace Prisma {
       id: number
       title: string
       description: string
-      img_url: string
+      img_url: string | null
       upvote_count: number
       board_id: number
     }, ExtArgs["result"]["kudos"]>
@@ -4616,7 +4616,7 @@ export namespace Prisma {
     id?: IntFilter<"Kudos"> | number
     title?: StringFilter<"Kudos"> | string
     description?: StringFilter<"Kudos"> | string
-    img_url?: StringFilter<"Kudos"> | string
+    img_url?: StringNullableFilter<"Kudos"> | string | null
     upvote_count?: IntFilter<"Kudos"> | number
     board_id?: IntFilter<"Kudos"> | number
     board?: XOR<BoardScalarRelationFilter, BoardWhereInput>
@@ -4626,7 +4626,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    img_url?: SortOrder
+    img_url?: SortOrderInput | SortOrder
     upvote_count?: SortOrder
     board_id?: SortOrder
     board?: BoardOrderByWithRelationInput
@@ -4639,7 +4639,7 @@ export namespace Prisma {
     NOT?: KudosWhereInput | KudosWhereInput[]
     title?: StringFilter<"Kudos"> | string
     description?: StringFilter<"Kudos"> | string
-    img_url?: StringFilter<"Kudos"> | string
+    img_url?: StringNullableFilter<"Kudos"> | string | null
     upvote_count?: IntFilter<"Kudos"> | number
     board_id?: IntFilter<"Kudos"> | number
     board?: XOR<BoardScalarRelationFilter, BoardWhereInput>
@@ -4649,7 +4649,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    img_url?: SortOrder
+    img_url?: SortOrderInput | SortOrder
     upvote_count?: SortOrder
     board_id?: SortOrder
     _count?: KudosCountOrderByAggregateInput
@@ -4666,7 +4666,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Kudos"> | number
     title?: StringWithAggregatesFilter<"Kudos"> | string
     description?: StringWithAggregatesFilter<"Kudos"> | string
-    img_url?: StringWithAggregatesFilter<"Kudos"> | string
+    img_url?: StringNullableWithAggregatesFilter<"Kudos"> | string | null
     upvote_count?: IntWithAggregatesFilter<"Kudos"> | number
     board_id?: IntWithAggregatesFilter<"Kudos"> | number
   }
@@ -4777,7 +4777,7 @@ export namespace Prisma {
   export type KudosCreateInput = {
     title: string
     description: string
-    img_url: string
+    img_url?: string | null
     upvote_count: number
     board: BoardCreateNestedOneWithoutKudosInput
   }
@@ -4786,7 +4786,7 @@ export namespace Prisma {
     id?: number
     title: string
     description: string
-    img_url: string
+    img_url?: string | null
     upvote_count: number
     board_id: number
   }
@@ -4794,7 +4794,7 @@ export namespace Prisma {
   export type KudosUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    img_url?: StringFieldUpdateOperationsInput | string
+    img_url?: NullableStringFieldUpdateOperationsInput | string | null
     upvote_count?: IntFieldUpdateOperationsInput | number
     board?: BoardUpdateOneRequiredWithoutKudosNestedInput
   }
@@ -4803,7 +4803,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    img_url?: StringFieldUpdateOperationsInput | string
+    img_url?: NullableStringFieldUpdateOperationsInput | string | null
     upvote_count?: IntFieldUpdateOperationsInput | number
     board_id?: IntFieldUpdateOperationsInput | number
   }
@@ -4812,7 +4812,7 @@ export namespace Prisma {
     id?: number
     title: string
     description: string
-    img_url: string
+    img_url?: string | null
     upvote_count: number
     board_id: number
   }
@@ -4820,7 +4820,7 @@ export namespace Prisma {
   export type KudosUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    img_url?: StringFieldUpdateOperationsInput | string
+    img_url?: NullableStringFieldUpdateOperationsInput | string | null
     upvote_count?: IntFieldUpdateOperationsInput | number
   }
 
@@ -4828,7 +4828,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    img_url?: StringFieldUpdateOperationsInput | string
+    img_url?: NullableStringFieldUpdateOperationsInput | string | null
     upvote_count?: IntFieldUpdateOperationsInput | number
     board_id?: IntFieldUpdateOperationsInput | number
   }
@@ -5361,7 +5361,7 @@ export namespace Prisma {
   export type KudosCreateWithoutBoardInput = {
     title: string
     description: string
-    img_url: string
+    img_url?: string | null
     upvote_count: number
   }
 
@@ -5369,7 +5369,7 @@ export namespace Prisma {
     id?: number
     title: string
     description: string
-    img_url: string
+    img_url?: string | null
     upvote_count: number
   }
 
@@ -5428,7 +5428,7 @@ export namespace Prisma {
     id?: IntFilter<"Kudos"> | number
     title?: StringFilter<"Kudos"> | string
     description?: StringFilter<"Kudos"> | string
-    img_url?: StringFilter<"Kudos"> | string
+    img_url?: StringNullableFilter<"Kudos"> | string | null
     upvote_count?: IntFilter<"Kudos"> | number
     board_id?: IntFilter<"Kudos"> | number
   }
@@ -5535,14 +5535,14 @@ export namespace Prisma {
     id?: number
     title: string
     description: string
-    img_url: string
+    img_url?: string | null
     upvote_count: number
   }
 
   export type KudosUpdateWithoutBoardInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    img_url?: StringFieldUpdateOperationsInput | string
+    img_url?: NullableStringFieldUpdateOperationsInput | string | null
     upvote_count?: IntFieldUpdateOperationsInput | number
   }
 
@@ -5550,7 +5550,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    img_url?: StringFieldUpdateOperationsInput | string
+    img_url?: NullableStringFieldUpdateOperationsInput | string | null
     upvote_count?: IntFieldUpdateOperationsInput | number
   }
 
@@ -5558,7 +5558,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    img_url?: StringFieldUpdateOperationsInput | string
+    img_url?: NullableStringFieldUpdateOperationsInput | string | null
     upvote_count?: IntFieldUpdateOperationsInput | number
   }
 
