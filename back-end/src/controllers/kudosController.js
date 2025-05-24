@@ -1,3 +1,4 @@
+const Prisma = require("../../generated/prisma");
 const prisma = require("../db/db");
 
 const getKudosByBoardId = async (req, res, next) => {
@@ -32,8 +33,19 @@ const createKudos = async (req, res, next) => {
       throw Error("No kudos provided");
     }
 
+    const normalizedData = data.map((data) => {
+      return {
+        ...data,
+        img_url: data.img_url ?? Prisma.skip,
+        upvote_count: 0,
+        board_id: parseInt(data.board_id),
+      };
+    });
+
+    console.log(normalizedData);
+
     const createdKudos = await prisma.kudos.createManyAndReturn({
-      data,
+      data: normalizedData,
     });
 
     res.json(createdKudos);

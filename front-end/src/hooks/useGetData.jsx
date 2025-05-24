@@ -3,9 +3,9 @@ import axios from "axios";
 
 const useGetData = (url) => {
   const [data, setData] = useState();
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [shouldRefetch, refetch] = useState({});
 
   const options = useMemo(() => {
     return {
@@ -32,12 +32,13 @@ const useGetData = (url) => {
     };
 
     fetchData();
-  }, [options]);
+  }, [options, shouldRefetch]);
 
   return {
     data,
     loading,
     error,
+    refetch,
   };
 };
 
