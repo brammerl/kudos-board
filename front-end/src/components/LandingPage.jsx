@@ -123,57 +123,57 @@ const LandingPage = () => {
 
   return (
     <>
-      {data.length ? (
+      <Box
+        sx={{
+          display: "flex",
+          rowGap: "10px",
+          width: "100%",
+          marginBottom: "50px",
+        }}
+      >
+        <TextField
+          variant="filled"
+          sx={{ width: "30%" }}
+          placeholder="Search"
+          id="search-bar"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <FormGroup row sx={{ flexGrow: "2", justifyContent: "flex-end" }}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                value="celebration"
+                onChange={(e) => handleCheckBoxChange(e)}
+              />
+            }
+            label="Celebration"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                value="thank_you"
+                onChange={(e) => handleCheckBoxChange(e)}
+              />
+            }
+            label="Thank you"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                value="inspriation"
+                onChange={(e) => handleCheckBoxChange(e)}
+              />
+            }
+            label="Inspiration"
+          />
+        </FormGroup>
+        <Button startIcon={<AddIcon />} onClick={handleModalChange}>
+          Add board
+        </Button>
+      </Box>
+      {filteredData.length ? (
         <>
-          <Box
-            sx={{
-              display: "flex",
-              rowGap: "10px",
-              width: "100%",
-              marginBottom: "50px",
-            }}
-          >
-            <TextField
-              variant="filled"
-              sx={{ width: "30%" }}
-              placeholder="Search"
-              id="search-bar"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <FormGroup row sx={{ flexGrow: "2", justifyContent: "flex-end" }}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value="celebration"
-                    onChange={(e) => handleCheckBoxChange(e)}
-                  />
-                }
-                label="Celebration"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value="thank_you"
-                    onChange={(e) => handleCheckBoxChange(e)}
-                  />
-                }
-                label="Thank you"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value="inspriation"
-                    onChange={(e) => handleCheckBoxChange(e)}
-                  />
-                }
-                label="Inspiration"
-              />
-            </FormGroup>
-            <Button startIcon={<AddIcon />} onClick={handleModalChange}>
-              Add board
-            </Button>
-          </Box>
           <CardGrid>
             {filteredData.map((board) => {
               return (
