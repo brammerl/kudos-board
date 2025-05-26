@@ -24,6 +24,7 @@ import useMutation from "../hooks/useMutation";
 
 import CardGrid from "./CardGrid";
 import BoardCard from "./BoardCard";
+import EmptyState from "./EmptyState";
 
 const style = {
   position: "absolute",
@@ -122,64 +123,81 @@ const LandingPage = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          rowGap: "10px",
-          width: "100%",
-          marginBottom: "50px",
-        }}
-      >
-        <TextField
-          variant="filled"
-          sx={{ width: "30%" }}
-          placeholder="Search"
-          id="search-bar"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+      {data.length ? (
+        <>
+          <Box
+            sx={{
+              display: "flex",
+              rowGap: "10px",
+              width: "100%",
+              marginBottom: "50px",
+            }}
+          >
+            <TextField
+              variant="filled"
+              sx={{ width: "30%" }}
+              placeholder="Search"
+              id="search-bar"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <FormGroup row sx={{ flexGrow: "2", justifyContent: "flex-end" }}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="celebration"
+                    onChange={(e) => handleCheckBoxChange(e)}
+                  />
+                }
+                label="Celebration"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="thank_you"
+                    onChange={(e) => handleCheckBoxChange(e)}
+                  />
+                }
+                label="Thank you"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="inspriation"
+                    onChange={(e) => handleCheckBoxChange(e)}
+                  />
+                }
+                label="Inspiration"
+              />
+            </FormGroup>
+            <Button startIcon={<AddIcon />} onClick={handleModalChange}>
+              Add board
+            </Button>
+          </Box>
+          <CardGrid>
+            {filteredData.map((board) => {
+              return (
+                <Grid size={4} key={board.id}>
+                  <BoardCard
+                    board={board}
+                    key={board.title}
+                    refetch={refetch}
+                  />
+                </Grid>
+              );
+            })}
+          </CardGrid>
+        </>
+      ) : (
+        <EmptyState
+          title="No boards found"
+          primaryButton={{
+            text: "Create Board",
+            onClick: handleModalChange,
+          }}
         />
-        <FormGroup row sx={{ flexGrow: "2", justifyContent: "flex-end" }}>
-          <FormControlLabel
-            control={
-              <Checkbox
-                value="celebration"
-                onChange={(e) => handleCheckBoxChange(e)}
-              />
-            }
-            label="Celebration"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                value="thank_you"
-                onChange={(e) => handleCheckBoxChange(e)}
-              />
-            }
-            label="Thank you"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                value="inspriation"
-                onChange={(e) => handleCheckBoxChange(e)}
-              />
-            }
-            label="Inspiration"
-          />
-        </FormGroup>
-        <Button startIcon={<AddIcon />} onClick={handleModalChange}>
-          Add board
-        </Button>
-      </Box>
-      <CardGrid>
-        {filteredData.map((board) => {
-          return (
-            <Grid size={4} key={board.id}>
-              <BoardCard board={board} key={board.title} refetch={refetch} />
-            </Grid>
-          );
-        })}
-      </CardGrid>
+      )}
+
       <Modal open={isModalOpen} onClose={handleModalChange}>
         <Box sx={style}>
           <form>
