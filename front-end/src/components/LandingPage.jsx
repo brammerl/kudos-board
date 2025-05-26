@@ -14,7 +14,6 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
-  Input,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
@@ -77,7 +76,7 @@ const LandingPage = () => {
     category_id: "",
   });
 
-  const { data, loading, error, refetch } = useGetData("/boards");
+  const { data, loading, refetch } = useGetData("/boards");
   const { data: categories, loading: categoriesLoading } =
     useGetData("/categories");
   const { mutate: createNewBoard } = useMutation("/boards", "POST");
