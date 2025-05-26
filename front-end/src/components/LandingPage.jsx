@@ -14,6 +14,7 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  Divider,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
@@ -32,8 +33,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
+  borderRadius: 10,
   p: 4,
 };
 
@@ -167,10 +168,15 @@ const LandingPage = () => {
             label="Inspiration"
           />
         </FormGroup>
-        <Button startIcon={<AddIcon />} onClick={handleModalChange}>
+        <Button
+          startIcon={<AddIcon />}
+          onClick={handleModalChange}
+          variant="contained"
+        >
           Add board
         </Button>
       </Box>
+      <Divider />
       {filteredData.length ? (
         <>
           <CardGrid>

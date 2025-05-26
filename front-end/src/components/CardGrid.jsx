@@ -7,8 +7,6 @@ const CardGrid = ({ children }) => {
       columns={{ xs: 4, sm: 8, md: 12 }}
       spacing={2}
       sx={{
-        border: "black",
-        borderStyle: "solid",
         padding: "30px",
       }}
     >
