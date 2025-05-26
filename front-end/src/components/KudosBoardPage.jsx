@@ -18,6 +18,7 @@ import useGetData from "../hooks/useGetData";
 import useMutation from "../hooks/useMutation";
 import KudosCard from "./KudosCard";
 import CardGrid from "./CardGrid";
+import EmptyState from "./EmptyState";
 
 const style = {
   position: "absolute",
@@ -81,20 +82,31 @@ const KudosBoardPage = () => {
             </IconButton>
           </Stack>
           <CardGrid sx={{ borderStyle: "line" }}>
-            {data.length ??
-              data.map((kudos) => {
-                return (
-                  <Grid size={4} key={kudos.id}>
-                    <KudosCard kudos={kudos} key={kudos.title} />
-                  </Grid>
-                );
-              })}
+            {data.length
+              ? data.map((kudos) => {
+                  return (
+                    <Grid size={4} key={kudos.id}>
+                      <KudosCard
+                        kudos={kudos}
+                        key={kudos.title}
+                        refetch={refetch}
+                      />
+                    </Grid>
+                  );
+                })
+              : null}
           </CardGrid>
         </>
       ) : (
-        <div>No kudos found here</div>
+        <EmptyState
+          title="No kudos found"
+          description="Create kudos to display them"
+          primaryButton={{
+            onClick: handleModalChange,
+            text: "Create kudos",
+          }}
+        />
       )}
-
       <Modal open={isModalOpen} onClose={handleModalChange}>
         <Box sx={style}>
           <form>
