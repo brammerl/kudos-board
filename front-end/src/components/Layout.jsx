@@ -7,7 +7,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <Container sx={{ marginTop: "50px" }}>
+      <Container sx={{ marginTop: "50px", height: "100vh" }}>
         <Outlet />
       </Container>
       <Footer />
