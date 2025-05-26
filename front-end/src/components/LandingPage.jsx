@@ -183,7 +183,7 @@ const LandingPage = () => {
       <Modal open={isModalOpen} onClose={handleModalChange}>
         <Box sx={style}>
           <form>
-            <Typography variant="h5">Create new kudos</Typography>
+            <Typography variant="h5">Create new board</Typography>
             <Stack spacing={2} sx={{ marginTop: "10px", marginBottom: "20px" }}>
               <TextField
                 id="title"
@@ -243,7 +243,7 @@ const LandingPage = () => {
               onClick={handleFormSubmit}
               disabled={formBtnDisabled}
             >
-              Create kudos
+              Create board
             </Button>
           </form>
         </Box>
