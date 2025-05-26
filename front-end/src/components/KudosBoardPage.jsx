@@ -51,18 +51,22 @@ const KudosBoardPage = () => {
     return setIsModalOpen((prev) => (!prev ? true : false));
   };
 
-  const handleFormSubmit = () => {
-    mutate([
+  const handleFormSubmit = async () => {
+    await mutate([
       {
         title,
         description,
         img_url: imgUrl,
         board_id: id,
       },
-    ]);
-
-    handleModalChange();
-    refetch({});
+    ])
+      .then(() => {
+        handleModalChange();
+        refetch({});
+      })
+      .catch(() => {
+        throw Error("Failed to create new kudos");
+      });
   };
 
   if (loading) {

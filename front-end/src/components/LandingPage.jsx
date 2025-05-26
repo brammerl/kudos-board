@@ -95,16 +95,16 @@ const LandingPage = () => {
     return setIsModalOpen((prev) => (!prev ? true : false));
   };
 
-  const handleFormSubmit = () => {
-    createNewBoard([formData]);
-
-    handleModalChange();
-    refetch({});
-    setFormData({
-      title: "",
-      description: "",
-      img_url: "",
-      category_id: "",
+  const handleFormSubmit = async () => {
+    await createNewBoard([formData]).then(() => {
+      handleModalChange();
+      refetch({});
+      setFormData({
+        title: "",
+        description: "",
+        img_url: "",
+        category_id: "",
+      });
     });
   };
 
