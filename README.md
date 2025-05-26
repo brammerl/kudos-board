@@ -4,7 +4,7 @@ Submitted by: Lucia Brammer
 
 Deployed Application (optional): N/A
 
-!['frontend']('./assets/front-end-ss.png')
+!['frontend'](./assets/front-end-ss.png)
 
 ### Application Features
 
