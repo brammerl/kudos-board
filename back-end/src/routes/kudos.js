@@ -8,4 +8,6 @@ router.delete("/:kudosId", kudosController.deleteKudosById);
 
 router.post("/", kudosController.createKudos);
 
+router.put("/:kudosId", kudosController.updateKudosById);
+
 module.exports = router;

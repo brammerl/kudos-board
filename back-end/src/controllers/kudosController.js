@@ -68,4 +68,33 @@ const deleteKudosById = async (req, res, next) => {
   }
 };
 
-module.exports = { createKudos, getKudosByBoardId, deleteKudosById };
+const updateKudosById = async (req, res, next) => {
+  try {
+    const { kudosId } = req.params;
+    const { data } = req.body;
+
+    const fetchedKudos = await prisma.kudos.findUnique({
+      where: {
+        id: parseInt(kudosId),
+      },
+    });
+
+    const updatedKudos = await prisma.kudos.update({
+      where: {
+        id: parseInt(kudosId),
+      },
+      data: { ...fetchedKudos, ...data },
+    });
+
+    res.json(updatedKudos);
+  } catch (e) {
+    next(e);
+  }
+};
+
+module.exports = {
+  createKudos,
+  getKudosByBoardId,
+  deleteKudosById,
+  updateKudosById,
+};

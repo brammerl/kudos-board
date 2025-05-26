@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { useState } from "react";
 
 import useMutation from "../hooks/useMutation";
 
@@ -16,9 +17,28 @@ const KudosCard = ({ kudos, refetch }) => {
   const { mutate: deleteKudos } = useMutation(`kudos/${id}`, "DELETE");
   const { mutate: updateKudos } = useMutation(`kudos/${id}`, "PUT");
 
-  const handleDeleteKudos = () => {
-    deleteKudos();
-    refetch({});
+  const [upvotes, setUpVotes] = useState(upvote_count ?? 0);
+
+  const handleDeleteKudos = async () => {
+    await deleteKudos()
+      .then(() => {
+        refetch({});
+      })
+      .catch(() => {
+        throw Error("failed to delete kudos");
+      });
+  };
+
+  const handleUpdateUpVote = async () => {
+    await updateKudos({
+      upvote_count: upvotes + 1,
+    })
+      .then(() => {
+        setUpVotes((prev) => prev + 1);
+      })
+      .catch(() => {
+        throw Error("Failed to update vote count");
+      });
   };
 
   const truncatedTitle = truncateString(title, 32);
@@ -42,7 +62,7 @@ const KudosCard = ({ kudos, refetch }) => {
         <Typography>{truncatedDescription}</Typography>
       </CardContent>
       <CardActions>
-        <Button>{`Upvote (${upvote_count})`}</Button>
+        <Button onClick={handleUpdateUpVote}>{`Upvote (${upvotes})`}</Button>
         <Button onClick={handleDeleteKudos}>Delete</Button>
       </CardActions>
     </Card>
