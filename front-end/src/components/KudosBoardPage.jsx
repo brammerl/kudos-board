@@ -68,77 +68,70 @@ const KudosBoardPage = () => {
     return <CircularProgress />;
   }
 
-  const modal = (
-    <Modal open={isModalOpen} onClose={handleModalChange}>
-      <Box sx={style}>
-        <form>
-          <Typography variant="h5">Create new kudos</Typography>
-          <Stack spacing={2} sx={{ marginTop: "10px", marginBottom: "20px" }}>
-            <TextField
-              id="title"
-              label="Title"
-              required
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <TextField
-              id="description"
-              label="Description"
-              required
-              multiline
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <TextField
-              id="img_url"
-              label="Link to image"
-              value={imgUrl}
-              onChange={(e) => setImgUrl(e.target.value)}
-            />
-          </Stack>
-          <Button
-            variant="contained"
-            onClick={handleFormSubmit}
-            disabled={formBtnDisabled}
-          >
-            Create kudos
-          </Button>
-        </form>
-      </Box>
-    </Modal>
-  );
-
-  if (!data.length) {
-    return (
-      <div>
-        No kudos found <Button onClick={handleModalChange}>Create Kudos</Button>
-        {modal}
-      </div>
-    );
-  }
-
-  const { board } = data[0];
-
   return (
     <>
-      <Stack direction="row" sx={{ marginBottom: "10px" }}>
-        <Typography variant="h4" sx={{ flexGrow: 3 }}>
-          {board.title}
-        </Typography>
-        <IconButton onClick={handleModalChange}>
-          <AddIcon />
-        </IconButton>
-      </Stack>
-      <CardGrid sx={{ borderStyle: "line" }}>
-        {data.map((kudos) => {
-          return (
-            <Grid size={4} key={kudos.id}>
-              <KudosCard kudos={kudos} key={kudos.title} />
-            </Grid>
-          );
-        })}
-      </CardGrid>
-      {modal}
+      {data.length ? (
+        <>
+          <Stack direction="row" sx={{ marginBottom: "10px" }}>
+            <Typography variant="h4" sx={{ flexGrow: 3 }}>
+              {data[0].board.title ?? <div>`No kudos found`</div>}
+            </Typography>
+            <IconButton onClick={handleModalChange}>
+              <AddIcon />
+            </IconButton>
+          </Stack>
+          <CardGrid sx={{ borderStyle: "line" }}>
+            {data.length ??
+              data.map((kudos) => {
+                return (
+                  <Grid size={4} key={kudos.id}>
+                    <KudosCard kudos={kudos} key={kudos.title} />
+                  </Grid>
+                );
+              })}
+          </CardGrid>
+        </>
+      ) : (
+        <div>No kudos found here</div>
+      )}
+
+      <Modal open={isModalOpen} onClose={handleModalChange}>
+        <Box sx={style}>
+          <form>
+            <Typography variant="h5">Create new kudos</Typography>
+            <Stack spacing={2} sx={{ marginTop: "10px", marginBottom: "20px" }}>
+              <TextField
+                id="title"
+                label="Title"
+                required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <TextField
+                id="description"
+                label="Description"
+                required
+                multiline
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <TextField
+                id="img_url"
+                label="Link to image"
+                value={imgUrl}
+                onChange={(e) => setImgUrl(e.target.value)}
+              />
+            </Stack>
+            <Button
+              variant="contained"
+              onClick={handleFormSubmit}
+              disabled={formBtnDisabled}
+            >
+              Create kudos
+            </Button>
+          </form>
+        </Box>
+      </Modal>
     </>
   );
 };
