@@ -174,7 +174,7 @@ const LandingPage = () => {
         {filteredData.map((board) => {
           return (
             <Grid size={4} key={board.id}>
-              <BoardCard board={board} key={board.title} />
+              <BoardCard board={board} key={board.title} refetch={refetch} />
             </Grid>
           );
         })}

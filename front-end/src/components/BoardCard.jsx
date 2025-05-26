@@ -9,11 +9,19 @@ import {
 import { NavLink } from "react-router";
 
 import { truncateString } from "../helpers/helpers";
+import useMutation from "../hooks/useMutation";
 
-const BoardCard = ({ board }) => {
+const BoardCard = ({ board, refetch }) => {
   const { title, img_url, description, id } = board;
   const truncatedTitle = truncateString(title, 32);
   const truncatedDescription = truncateString(description);
+
+  const { mutate: deleteBoard } = useMutation(`boards/${id}`, "DELETE");
+
+  const onDeleteBoard = () => {
+    deleteBoard();
+    refetch({});
+  };
 
   return (
     <Card
@@ -34,7 +42,7 @@ const BoardCard = ({ board }) => {
         <Button>
           <NavLink to={`/board/${id}`}>View board</NavLink>
         </Button>
-        <Button>Delete board</Button>
+        <Button onClick={onDeleteBoard}>Delete board</Button>
       </CardActions>
     </Card>
   );
