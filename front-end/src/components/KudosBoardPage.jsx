@@ -34,6 +34,7 @@ const style = {
 const KudosBoardPage = () => {
   const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // Consider putting these form inputs into one state
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imgUrl, setImgUrl] = useState("");
@@ -43,6 +44,8 @@ const KudosBoardPage = () => {
 
   const formBtnDisabled = title && description ? false : true;
 
+  // Consider putting this into a custom hook since this logic
+  // is replicated elsewhere - LandingPage
   const handleModalChange = () => {
     return setIsModalOpen((prev) => (!prev ? true : false));
   };
@@ -60,6 +63,7 @@ const KudosBoardPage = () => {
     handleModalChange();
     refetch({});
   };
+
   if (loading) {
     return <CircularProgress />;
   }
