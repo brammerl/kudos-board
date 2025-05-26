@@ -42,8 +42,6 @@ const createKudos = async (req, res, next) => {
       };
     });
 
-    console.log(normalizedData);
-
     const createdKudos = await prisma.kudos.createManyAndReturn({
       data: normalizedData,
     });
@@ -54,4 +52,20 @@ const createKudos = async (req, res, next) => {
   }
 };
 
-module.exports = { createKudos, getKudosByBoardId };
+const deleteKudosById = async (req, res, next) => {
+  try {
+    const { kudosId } = req.params;
+
+    const fetchedKudos = await prisma.kudos.delete({
+      where: {
+        id: parseInt(kudosId),
+      },
+    });
+
+    res.json(fetchedKudos);
+  } catch (e) {
+    next(e);
+  }
+};
+
+module.exports = { createKudos, getKudosByBoardId, deleteKudosById };

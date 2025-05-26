@@ -7,10 +7,20 @@ import {
   Button,
 } from "@mui/material";
 
+import useMutation from "../hooks/useMutation";
+
 import { truncateString } from "../helpers/helpers";
 
-const KudosCard = ({ kudos }) => {
-  const { title, img_url, description, upvote_count } = kudos;
+const KudosCard = ({ kudos, refetch }) => {
+  const { title, img_url, description, upvote_count, id } = kudos;
+  const { mutate: deleteKudos } = useMutation(`kudos/${id}`, "DELETE");
+  const { mutate: updateKudos } = useMutation(`kudos/${id}`, "PUT");
+
+  const handleDeleteKudos = () => {
+    deleteKudos();
+    refetch({});
+  };
+
   const truncatedTitle = truncateString(title, 32);
   const truncatedDescription = truncateString(description);
 
@@ -33,7 +43,7 @@ const KudosCard = ({ kudos }) => {
       </CardContent>
       <CardActions>
         <Button>{`Upvote (${upvote_count})`}</Button>
-        <Button>Delete</Button>
+        <Button onClick={handleDeleteKudos}>Delete</Button>
       </CardActions>
     </Card>
   );
