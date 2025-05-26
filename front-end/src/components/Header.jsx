@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 
 const Header = () => {
   return (
-    <AppBar position="static" sx={{ height: "100%" }}>
+    <AppBar position="sticky" sx={{ height: "100%" }}>
       <NavLink to={"/"}>
         <Typography variant="h2">Kudos Board</Typography>
       </NavLink>
