@@ -69,42 +69,43 @@ const LandingPage = () => {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // Consider putting these form inputs into one state
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
-  const [categoryInput, setCategoryInput] = useState("");
-
-  console.log("categoryInput", categoryInput);
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    img_url: "",
+    category_id: "",
+  });
 
   const { data, loading, error, refetch } = useGetData("/boards");
   const { data: categories, loading: categoriesLoading } =
     useGetData("/categories");
   const { mutate: createNewBoard } = useMutation("/boards", "POST");
 
+  if (loading || categoriesLoading) {
+    return <CircularProgress />;
+  }
+
+  const formBtnDisabled =
+    formData.title && formData.description && formData.category_id
+      ? false
+      : true;
+
   const handleModalChange = () => {
     return setIsModalOpen((prev) => (!prev ? true : false));
   };
 
   const handleFormSubmit = () => {
-    createNewBoard([
-      {
-        title,
-        description,
-        img_url: imgUrl,
-        category_id: categoryInput,
-      },
-    ]);
+    createNewBoard([formData]);
 
     handleModalChange();
     refetch({});
+    setFormData({
+      title: "",
+      description: "",
+      img_url: "",
+      category_id: "",
+    });
   };
-
-  if (loading || categoriesLoading) {
-    return <CircularProgress />;
-  }
-
-  const formBtnDisabled = title && description && categoryInput ? false : true;
 
   const handleCheckBoxChange = (e) => {
     if (!e.target.checked) {
@@ -188,22 +189,31 @@ const LandingPage = () => {
                 id="title"
                 label="Title"
                 required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={formData.title}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, title: e.target.value }))
+                }
               />
               <TextField
                 id="description"
                 label="Description"
                 required
                 multiline
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={formData.description}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    description: e.target.value,
+                  }))
+                }
               />
               <TextField
                 id="img_url"
                 label="Link to image"
-                value={imgUrl}
-                onChange={(e) => setImgUrl(e.target.value)}
+                value={formData.img_url}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, img_url: e.target.value }))
+                }
               />
               <FormControl>
                 <InputLabel id="category-selection-label">Category</InputLabel>
@@ -211,8 +221,13 @@ const LandingPage = () => {
                   label="Category"
                   required
                   id="category"
-                  value={categoryInput}
-                  onChange={(e) => setCategoryInput(e.target.value)}
+                  value={formData.category_id}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      category_id: e.target.value,
+                    }))
+                  }
                 >
                   {categories.map(({ id, display_name, category_name }) => (
                     <MenuItem value={id} key={category_name}>
