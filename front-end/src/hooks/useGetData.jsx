@@ -22,7 +22,6 @@ const useGetData = (url) => {
     const fetchData = async () => {
       try {
         const response = await axios.request(options);
-
         setData(response.data);
         setLoading(false);
       } catch (error) {

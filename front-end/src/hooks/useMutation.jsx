@@ -8,7 +8,6 @@ const useMutation = (url, method) => {
   const [error, setError] = useState(null);
 
   const mutate = async (data) => {
-    console.log(data);
     const options = {
       method,
       url,
@@ -24,12 +23,9 @@ const useMutation = (url, method) => {
     try {
       const response = await axios(options);
 
-      console.log(response.data);
-
       setResponse(response.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
       setError(error);
     }
