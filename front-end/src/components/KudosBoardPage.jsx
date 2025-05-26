@@ -35,15 +35,16 @@ const style = {
 const KudosBoardPage = () => {
   const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // Consider putting these form inputs into one state
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    img_url: "",
+  });
 
   const { data, loading, refetch } = useGetData(`/kudos/${id}`);
   const { mutate } = useMutation("/kudos", "POST");
 
-  const formBtnDisabled = title && description ? false : true;
+  const formBtnDisabled = formData.title && formData.description ? false : true;
 
   // Consider putting this into a custom hook since this logic
   // is replicated elsewhere - LandingPage
@@ -54,13 +55,16 @@ const KudosBoardPage = () => {
   const handleFormSubmit = async () => {
     await mutate([
       {
-        title,
-        description,
-        img_url: imgUrl,
+        ...formData,
         board_id: id,
       },
     ])
       .then(() => {
+        setFormData({
+          title: "",
+          description: "",
+          img_url: "",
+        });
         handleModalChange();
         refetch({});
       })
@@ -120,22 +124,37 @@ const KudosBoardPage = () => {
                 id="title"
                 label="Title"
                 required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={formData.title}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    title: e.target.value,
+                  }))
+                }
               />
               <TextField
                 id="description"
                 label="Description"
                 required
                 multiline
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={formData.description}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    description: e.target.value,
+                  }))
+                }
               />
               <TextField
                 id="img_url"
                 label="Link to image"
-                value={imgUrl}
-                onChange={(e) => setImgUrl(e.target.value)}
+                value={formData.imgUrl}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    img_url: e.target.value,
+                  }))
+                }
               />
             </Stack>
             <Button
