@@ -1,8 +1,10 @@
 ## Unit Assignment: Kudos Board
 
-Submitted by: Lucia Brammerxs
+Submitted by: Lucia Brammer
 
-Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): N/A
+
+!['frontend']('./assets/front-end-ss.png')
 
 ### Application Features
 
@@ -137,29 +139,10 @@ Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
   - [ ] Add a new filter option on the home page to display only the current user's boards.
   - [ ] Allow boards to be deleted only if they are owned by the user.
 
-### Walkthrough Video
-
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
-
-### Reflection
-
-- Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
-
-Add your response here
-
-- If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-
-Add your response here
-
-- Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
-
-Add your response here
-
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- react-router
+- material ui
 
 ### Shout out
 
