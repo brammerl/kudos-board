@@ -68,6 +68,55 @@ const KudosBoardPage = () => {
     return <CircularProgress />;
   }
 
+  const modal = (
+    <Modal open={isModalOpen} onClose={handleModalChange}>
+      <Box sx={style}>
+        <form>
+          <Typography variant="h5">Create new kudos</Typography>
+          <Stack spacing={2} sx={{ marginTop: "10px", marginBottom: "20px" }}>
+            <TextField
+              id="title"
+              label="Title"
+              required
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <TextField
+              id="description"
+              label="Description"
+              required
+              multiline
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <TextField
+              id="img_url"
+              label="Link to image"
+              value={imgUrl}
+              onChange={(e) => setImgUrl(e.target.value)}
+            />
+          </Stack>
+          <Button
+            variant="contained"
+            onClick={handleFormSubmit}
+            disabled={formBtnDisabled}
+          >
+            Create kudos
+          </Button>
+        </form>
+      </Box>
+    </Modal>
+  );
+
+  if (!data.length) {
+    return (
+      <div>
+        No kudos found <Button onClick={handleModalChange}>Create Kudos</Button>
+        {modal}
+      </div>
+    );
+  }
+
   const { board } = data[0];
 
   return (
@@ -89,43 +138,7 @@ const KudosBoardPage = () => {
           );
         })}
       </CardGrid>
-      <Modal open={isModalOpen} onClose={handleModalChange}>
-        <Box sx={style}>
-          <form>
-            <Typography variant="h5">Create new kudos</Typography>
-            <Stack spacing={2} sx={{ marginTop: "10px", marginBottom: "20px" }}>
-              <TextField
-                id="title"
-                label="Title"
-                required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <TextField
-                id="description"
-                label="Description"
-                required
-                multiline
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-              <TextField
-                id="img_url"
-                label="Link to image"
-                value={imgUrl}
-                onChange={(e) => setImgUrl(e.target.value)}
-              />
-            </Stack>
-            <Button
-              variant="contained"
-              onClick={handleFormSubmit}
-              disabled={formBtnDisabled}
-            >
-              Create kudos
-            </Button>
-          </form>
-        </Box>
-      </Modal>
+      {modal}
     </>
   );
 };
